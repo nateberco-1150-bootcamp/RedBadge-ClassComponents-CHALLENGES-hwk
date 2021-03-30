@@ -23,12 +23,12 @@ class SearchIndex extends Component {
         "protective sheets",
         "index cards",
       ],
-      searchTerm: "",
+      searchWord: "",
     };
   }
-  editSearchTerm = (e) => {
-    let search = this.state.searchTerm;
-    this.setState({ searchTerm: e.target.value });
+  editSearchWord = (e) => {
+    let search = this.state.searchWord;
+    this.setState({ searchWord: e.target.value });
     console.log(search);
   };
   render() {
@@ -38,15 +38,15 @@ class SearchIndex extends Component {
           <Input
             type="text"
             placeholder="Search Here"
-            value={this.state.searchTerm}
-            onChange={this.editSearchTerm}
+            value={this.state.searchWord}
+            onChange={this.editSearchWord}
           />
           <button type="submit"> Search</button>
           <h3>Results:</h3>
         </form>
         <ul>
           {this.state.things
-            .filter((thing) => thing.includes(this.state.searchTerm))
+            .filter((thing) => thing.includes(this.state.searchWord))
             .map((thing) => (
               <li>{thing}</li>
             ))}
